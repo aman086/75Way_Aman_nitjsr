@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Finally Logged In ,  {{ name }}</h2>
+    
+    <h3> Profile Information </h3>
+        <p> Name  :: {{ name }}</p>
+        <p> Gender :: {{ gender }}</p>
+        <p> Hobbies :: {{ hobbies }}</p>
+   
+    <p id="demo" style="background-color : aqua; width: 150px"></p>
+
+    <button id="actionPerform">performAction</button>
+    <a  id="female" href="http://localhost:3000/getAllFemaleData" type="button" style="visibility: hidden;"> Get Female data </a>
+    <a  id="male" href="http://localhost:3000/getAllmaleData" type="button" style="visibility: hidden;"> Get Male data </a>
+
+    <script>
+        
+        document.getElementById('actionPerform').addEventListener('click' , function(){
+            var gender = `{{ gender }}`;
+            if(gender === 'male'){
+                document.getElementById('demo').innerHTML = "List , all female Candidates ";
+                document.getElementById('female').style.visibility = "visible";
+            }else{
+                document.getElementById('demo').innerHTML = "List , all Male Candidates ";
+                document.getElementById('male').style.visibility = "visible";
+            }
+        });
+        
+    </script>
+
+</body>
+</html>

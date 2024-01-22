@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <h2>Sign Up</h2>
+
+    <form action="/signup" method="post">
+       <input type="text" name="name" placeholder="Name">
+       <input type="password" name="password" placeholder="Password">
+
+        <label for="dob"> Date of Birth</label>
+        <input type="date" id="dob" name="dob">
+       
+
+        <select name="gender">
+            <option value="">Please select one…</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="non-binary">Non-Binary</option>
+            <option value="other">Other</option>
+            <option value="Prefer not to answer">Perfer not to Answer</option>
+        </select>
+
+        <p><label for="hobbies">Please tell us about your hobbies:</label></p>
+        <p><textarea name="hobbies" rows="7" cols="40"></textarea></p>
+        
+       <p id="demo" name="location"></p>
+       
+       
+        <input type="submit">
+
+        
+    </form>
+
+     <p>Click the button to get your coordinates.</p>
+     <button onclick="getLocation()">Current Location</button>
+
+
+
+<script>
+    const x = document.getElementById("demo");
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+    }
+
+function showPosition(position) {
+  x.innerText =position.coords.latitude + 
+  "," + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
